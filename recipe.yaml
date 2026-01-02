@@ -126,7 +126,7 @@ tasks:
   # ---------------------------------------------
   # SERVER.CFG
   # ---------------------------------------------
-  - action: write_file
+    - action: write_file
     path: server.cfg
     data: |
       sv_hostname "Dre ESX Legacy | ox_inventory | Full Jobs | Story Mode World"
@@ -160,11 +160,11 @@ tasks:
       ensure world
 
       # Inventory Integration
-      setr inventory:framework "esx"
-      setr inventory:weight_system true
+      setr "inventory:framework" "esx"
+      setr "inventory:weight_system" "true"
 
       # Ox Target
-      setr ox_target:debug false
+      setr "ox_target:debug" "false"
 
       # Basic Resources
       ensure chat
@@ -181,11 +181,4 @@ tasks:
       sv_endpointPrivacy true
       sv_enforceGameBuild 3095
 
-  # ---------------------------------------------
-  # SQL IMPORTS
-  # ---------------------------------------------
-  - action: run_sql
-    file: resources/[ox]/ox_inventory/sql/items.sql
-
-  - action: run_sql
     file: resources/[esx]/es_extended/sql/es_extended.sql
