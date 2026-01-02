@@ -3,9 +3,9 @@ version: "1.0.0"
 author: "Dre"
 
 tasks:
-  ###############################################
+  # ---------------------------------------------
   # ESX LEGACY (LATEST VERSION)
-  ###############################################
+  # ---------------------------------------------
   - action: download_github
     src: https://github.com/esx-framework/esx-legacy
     ref: main
@@ -31,9 +31,9 @@ tasks:
     ref: main
     dest: resources/[esx]/esx_society
 
-  ###############################################
+  # ---------------------------------------------
   # ESX JOBS PACK
-  ###############################################
+  # ---------------------------------------------
   - action: download_github
     src: https://github.com/esx-framework/esx_policejob
     ref: main
@@ -64,9 +64,9 @@ tasks:
     ref: main
     dest: resources/[esx_jobs]/esx_vehicleshop
 
-  ###############################################
+  # ---------------------------------------------
   # OX FRAMEWORK RESOURCES
-  ###############################################
+  # ---------------------------------------------
   - action: download_github
     src: https://github.com/overextended/ox_lib
     ref: main
@@ -87,22 +87,9 @@ tasks:
     ref: main
     dest: resources/[database]/oxmysql
 
-  ###############################################
-  # WORLD SETTINGS (WANTED LEVEL, DISPATCH, DENSITY)
-  ###############################################
-  - action: create_dir
-    path: resources/[custom]/world
-
-  - action: write_file
-    path: resources/[custom]/world/fxmanifest.lua
-    data: |
-      fx_version 'cerulean'
-      game 'gta5'
-
-      client_scripts {
-          'client.lua'
-      }
-
+  # ---------------------------------------------
+  # WORLD SETTINGS
+  # ---------------------------------------------
   - action: write_file
     path: resources/[custom]/world/client.lua
     data: |
@@ -136,9 +123,9 @@ tasks:
           end
       end)
 
-  ###############################################
+  # ---------------------------------------------
   # SERVER.CFG
-  ###############################################
+  # ---------------------------------------------
   - action: write_file
     path: server.cfg
     data: |
@@ -198,9 +185,9 @@ tasks:
       sv_endpointPrivacy true
       sv_enforceGameBuild 3095
 
-  ###############################################
+  # ---------------------------------------------
   # SQL IMPORTS
-  ###############################################
+  # ---------------------------------------------
   - action: run_sql
     file: resources/[ox]/ox_inventory/sql/items.sql
 
