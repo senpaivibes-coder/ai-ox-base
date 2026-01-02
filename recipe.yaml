@@ -181,4 +181,11 @@ tasks:
       sv_endpointPrivacy true
       sv_enforceGameBuild 3095
 
+  # ---------------------------------------------
+  # SQL IMPORTS
+  # ---------------------------------------------
+  - action: run_sql
+    file: resources/[ox]/ox_inventory/sql/items.sql
 
+  - action: run_sql
+    file: resources/[esx]/es_extended/sql/es_extended.sql
