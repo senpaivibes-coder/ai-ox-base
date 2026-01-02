@@ -129,7 +129,56 @@ tasks:
   - action: write_file
     path: server.cfg
     data: |
-      #########################################
-      # ESX Legacy Full Build by Dre
-      #########################################
+      sv_hostname "Dre ESX Legacy | ox_inventory | Full Jobs | Story Mode World"
+      sv_maxclients 64
+
+      # Database
+      set mysql_connection_string "mysql://root:password@localhost/esx?charset=utf8mb4"
+
+      # OX Core
+      ensure oxmysql
+      ensure ox_lib
+      ensure ox_inventory
+      ensure ox_target
+
+      # ESX Framework
+      ensure es_extended
+      ensure esx_addonaccount
+      ensure esx_addoninventory
+      ensure esx_datastore
+      ensure esx_society
+
+      # ESX Jobs
+      ensure esx_policejob
+      ensure esx_ambulancejob
+      ensure esx_mechanicjob
+      ensure esx_realestateagentjob
+      ensure esx_taxijob
+      ensure esx_vehicleshop
+
+      # World Systems
+      ensure world
+
+      # Inventory Integration
+      setr inventory:framework "esx"
+      setr inventory:weight_system true
+
+      # Ox Target
+      setr ox_target:debug false
+
+      # Basic Resources
+      ensure chat
+      ensure spawnmanager
+      ensure sessionmanager
+      ensure hardcap
+
+      # Permissions
+      add_ace group.admin command allow
+      add_principal identifier.fivem:YOURID group.admin
+
+      # Game Build
+      sv_scriptHookAllowed 0
+      sv_endpointPrivacy true
+      sv_enforceGameBuild 3095
+
 
